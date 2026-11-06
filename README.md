@@ -2,6 +2,12 @@
 
 An end-to-end, reproducible churn modeling application using IBM's 7,043-row Telco Customer Churn sample. It trains multiple classifiers, selects a decision threshold using validation F1, reports untouched test performance, ranks customers by expected annualized revenue risk, and provides a Streamlit dashboard with SHAP explanations.
 
+## Live demo
+
+**[Open the live churn and revenue risk dashboard](https://customer-churn-prediction-revenue-risk-knfld5hswatebetuwn89vd.streamlit.app/)** · [Browse the source code](https://github.com/Integenpiyush/customer-churn-prediction-revenue-risk)
+
+The public dashboard uses the committed model and aggregate reports; it does not expose customer-level records.
+
 > **Risk interpretation:** expected revenue at risk is `P(churn) × monthly charges × 12`. It is an annualized risk proxy, not customer lifetime value and not revenue guaranteed to be lost.
 
 ## Project layout
@@ -71,7 +77,7 @@ Per-customer risk is probability times monthly charge times 12. Customers are so
 
 ## Deployment
 
-The repository is structured for Streamlit Community Cloud: set the app entry point to `app.py`, use `requirements.txt`, and ensure the model artifact is present. If no local CSV is present, the app downloads the source CSV from IBM at startup. A hosted deployment has not been created or verified yet.
+The app is deployed on Streamlit Community Cloud from `app.py` using `requirements.txt`. It loads the committed model and aggregate reports at startup. Training and EDA fetch the source CSV from IBM when no local copy is present; the hosted app does not download the CSV.
 
 ## Limitations and next steps
 
