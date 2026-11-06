@@ -13,7 +13,7 @@ src/churn/train.py             Stratified split, model comparison, evaluation, a
 src/churn/eda.py               EDA charts and data quality summary
 src/churn/risk.py              Risk calculation and customer prioritization
 src/churn/explain.py           SHAP explanation helper
-data/raw/                      IBM source CSV
+data/raw/                      ignored local IBM CSV cache
 artifacts/                     Trained pipeline and actual metrics
 reports/                       EDA figures, comparison and risk report
 tests/                         Unit tests
@@ -23,7 +23,7 @@ tests/                         Unit tests
 flowchart LR
   A[IBM Telco CSV] --> B[Cleaning and feature engineering]
   B --> C[Train only: impute, scale, encode]
-  C --> D[LR / RF / Extra Trees / XGBoost]
+  C --> D[LR / RF / Extra Trees / XGBoost / CatBoost]
   D --> E[Validation model and threshold selection]
   E --> F[Held-out test evaluation]
   E --> G[Serialized pipeline]
@@ -42,7 +42,7 @@ The seeded split is stratified into 70% train, 10% validation and 20% test (test
 
 Feature engineering adds tenure and monthly charge bands, month-to-month indicator, service count, and total-charge per tenure-month. `customerID` is never used as a feature. Derived values are calculated by the same `prepare_frame` function at inference.
 
-For a binary classifier, precision is `TP/(TP+FP)`, recall is `TP/(TP+FN)`, and F1 is their harmonic mean. ROC-AUC measures ranking across thresholds; PR-AUC summarizes precision-recall behavior and is useful under class imbalance. Class weights increase the training penalty on churn errors. Reported test results are generated from this code and the bundled source dataset, not copied from historical benchmarks.
+For a binary classifier, precision is `TP/(TP+FP)`, recall is `TP/(TP+FN)`, and F1 is their harmonic mean. ROC-AUC measures ranking across thresholds; PR-AUC summarizes precision-recall behavior and is useful under class imbalance. Class weights increase the training penalty on churn errors. Reported test results are generated from this code and the IBM source dataset, not copied from historical benchmarks.
 
 ## Install and run
 
@@ -57,7 +57,7 @@ pytest -q
 streamlit run app.py
 ```
 
-Training saves a serialized sklearn pipeline to `artifacts/churn_model.joblib`, test metrics to `artifacts/metrics.json`, a model comparison to `reports/model_comparison.csv`, a customer risk report to `reports/test_customer_risk.csv`, aggregate test risk to `artifacts/revenue_risk.json`, and SHAP global importance plots/table under `reports/`. The dashboard includes Overview, Customer Analytics, Model Performance, Customer Prediction, Revenue Risk, and Explainability pages. SHAP explanations summarize model behavior, not causal drivers.
+Training saves a serialized sklearn pipeline to `artifacts/churn_model.joblib`, test metrics to `artifacts/metrics.json`, model comparison to `reports/model_comparison.csv`, aggregate test risk to `artifacts/revenue_risk.json`, and SHAP global importance plots/table under `reports/`. Set `EXPORT_CUSTOMER_LEVEL_REPORTS=1` to write the customer-level risk export to the ignored `data/private/` folder for local use. Individual customer records are excluded from the public repo and dashboard; the Revenue Risk page shows segment aggregates. The dashboard includes Overview, Customer Analytics, Model Performance, Customer Prediction, Revenue Risk, and Explainability pages. SHAP explanations summarize model behavior, not causal drivers.
 
 ## Reproduced results
 
@@ -71,7 +71,7 @@ Per-customer risk is probability times monthly charge times 12. Customers are so
 
 ## Deployment
 
-The repository is structured for Streamlit Community Cloud: set the app entry point to `app.py`, use `requirements.txt`, and ensure the committed model and dataset artifacts are available. A hosted deployment has not been created or verified from this workspace. Upload credentials and external repository access are not configured here.
+The repository is structured for Streamlit Community Cloud: set the app entry point to `app.py`, use `requirements.txt`, and ensure the model artifact is present. If no local CSV is present, the app downloads the source CSV from IBM at startup. A hosted deployment has not been created or verified yet.
 
 ## Limitations and next steps
 

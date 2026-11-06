@@ -1,0 +1,4 @@
+feature,iqr_lower_bound,iqr_upper_bound,outlier_count,interpretation
+tenure,-60.0,124.0,0,flagged for review; retained in analysis
+MonthlyCharges,-46.02499999999999,171.375,0,flagged for review; retained in analysis
+TotalCharges,-4688.481250000001,8884.66875,0,flagged for review; retained in analysis

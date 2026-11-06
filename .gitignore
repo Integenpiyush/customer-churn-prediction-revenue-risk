@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.streamlit/secrets.toml
+*.log
+data/raw/*.csv
+data/private/
+reports/test_customer_risk.csv
+reports/test_predictions.csv

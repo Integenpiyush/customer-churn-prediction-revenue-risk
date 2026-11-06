@@ -1,0 +1,8 @@
+{
+  "test_customer_count": 1409,
+  "annualized_expected_revenue_risk": 321311.1049098033,
+  "top_decile_count": 140,
+  "top_decile_risk": 110815.4761279106,
+  "top_decile_share": 0.34488529787670463,
+  "actual_churners": 374
+}

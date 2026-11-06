@@ -1,0 +1,60 @@
+feature,mean_abs_shap
+num__month_to_month,0.546154301868696
+num__tenure,0.5049307285086904
+cat__OnlineSecurity_No,0.25739630717052625
+cat__InternetService_Fiber optic,0.21377106882800342
+cat__TechSupport_No,0.19965950829793702
+num__MonthlyCharges,0.18598752461757515
+cat__Contract_Two year,0.182990857384808
+num__charge_per_tenure_month,0.17355636727990112
+cat__PaymentMethod_Electronic check,0.16114746584537207
+num__TotalCharges,0.14446780409868287
+cat__PaperlessBilling_No,0.14346230401934598
+cat__MultipleLines_No,0.1285518007207686
+cat__OnlineBackup_No,0.10276379964859227
+cat__Contract_Month-to-month,0.07186671000137
+cat__Dependents_No,0.071378568489803
+num__SeniorCitizen,0.054207371150611465
+cat__Contract_One year,0.05183107460447119
+cat__StreamingMovies_Yes,0.047318933322818495
+cat__gender_Female,0.0467504658091441
+cat__StreamingMovies_No,0.02781658541346201
+cat__StreamingTV_Yes,0.02669133293537422
+num__service_count,0.026382038106517867
+cat__MultipleLines_Yes,0.019914483942054206
+cat__StreamingTV_No,0.018365354398114132
+cat__Partner_No,0.015798812582720995
+cat__DeviceProtection_No,0.014391892941370603
+cat__PhoneService_No,0.013655722665730854
+cat__PaymentMethod_Credit card (automatic),0.012550283387815577
+cat__InternetService_DSL,0.01235550236982293
+cat__InternetService_No,0.011366758929071963
+cat__OnlineBackup_Yes,0.010401126466803256
+cat__PaymentMethod_Bank transfer (automatic),0.010335430387952371
+cat__PaymentMethod_Mailed check,0.008447761032274
+cat__tenure_group_0-6,0.008307685475684706
+cat__DeviceProtection_Yes,0.008025722900674454
+cat__Dependents_Yes,0.007790754387034102
+cat__monthly_charge_segment_high,0.005899926392585045
+cat__monthly_charge_segment_mid,0.005286209774501619
+cat__Partner_Yes,0.004764358159732082
+cat__gender_Male,0.004685603327117863
+cat__tenure_group_7-12,0.004632586457487195
+cat__OnlineSecurity_Yes,0.00454266116341576
+cat__tenure_group_13-24,0.004140369430116843
+cat__TechSupport_Yes,0.004065504075484347
+cat__monthly_charge_segment_very_high,0.0030022772213257843
+cat__PaperlessBilling_Yes,0.002883184848204251
+cat__PhoneService_Yes,0.0022663918370567243
+cat__MultipleLines_No phone service,0.0
+num__missingindicator_TotalCharges,0.0
+cat__StreamingTV_No internet service,0.0
+cat__StreamingMovies_No internet service,0.0
+num__missingindicator_charge_per_tenure_month,0.0
+cat__tenure_group_25-48,0.0
+cat__tenure_group_49-72,0.0
+cat__TechSupport_No internet service,0.0
+cat__DeviceProtection_No internet service,0.0
+cat__monthly_charge_segment_low,0.0
+cat__OnlineSecurity_No internet service,0.0
+cat__OnlineBackup_No internet service,0.0

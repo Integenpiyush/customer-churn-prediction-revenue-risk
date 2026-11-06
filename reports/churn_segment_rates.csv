@@ -1,0 +1,20 @@
+segment_feature,segment,customers,churn_rate
+Contract,Month-to-month,3875,0.4270967741935484
+Contract,One year,1473,0.11269517990495587
+Contract,Two year,1695,0.02831858407079646
+PaymentMethod,Bank transfer (automatic),1544,0.16709844559585493
+PaymentMethod,Credit card (automatic),1522,0.15243101182654403
+PaymentMethod,Electronic check,2365,0.4528541226215645
+PaymentMethod,Mailed check,1612,0.19106699751861042
+InternetService,DSL,2421,0.1895910780669145
+InternetService,Fiber optic,3096,0.4189276485788114
+InternetService,No,1526,0.07404980340760157
+tenure,0-6,1481,0.5293720459149224
+tenure,7-12,705,0.3588652482269504
+tenure,13-24,1024,0.287109375
+tenure,25-48,1594,0.2038895859473024
+tenure,49-72,2239,0.09513175524787852
+MonthlyCharges,low,1735,0.10893371757925072
+MonthlyCharges,mid,1409,0.2313697657913414
+MonthlyCharges,high,2160,0.362962962962963
+MonthlyCharges,very high,1739,0.32777458309373203
