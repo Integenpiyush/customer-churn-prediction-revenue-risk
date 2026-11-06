@@ -34,7 +34,7 @@ flowchart LR
 
 ## Data and EDA
 
-Source, terms caveat and missing-value decisions are documented in [docs/data.md](docs/data.md). The app downloads the CSV from IBM when no local copy is present; run `python -m src.churn.data` to save it locally. The source data contains 7,043 rows, 21 columns (19 predictors plus ID and target), a roughly 26.5% churn rate, and 11 blank `TotalCharges` values for zero-tenure customers. EDA charts cover class balance, contract, tenure, monthly charges, payment method and numeric correlations. The run also writes churn segment rates, categorical Cramer's V associations and IQR outlier review tables; flagged values are retained because they are plausible billing/customer observations. Run `python -m src.churn.eda` to rebuild the outputs. The generated summary records missingness and duplicate counts.
+Source, terms caveat and missing-value decisions are documented in [docs/data.md](docs/data.md). Training and EDA fetch the CSV from IBM when no local copy is present; run `python -m src.churn.data` to save it locally. The deployed dashboard uses committed aggregate reports and model artifacts, so it does not fetch or display customer-level records. The source data contains 7,043 rows, 21 columns (19 predictors plus ID and target), a roughly 26.5% churn rate, and 11 blank `TotalCharges` values for zero-tenure customers. EDA charts cover class balance, contract, tenure, monthly charges, payment method and numeric correlations. The run also writes churn segment rates, categorical Cramer's V associations and IQR outlier review tables; flagged values are retained because they are plausible billing/customer observations. Run `python -m src.churn.eda` to rebuild the outputs. The generated summary records missingness and duplicate counts.
 
 ## Modeling methodology
 
@@ -57,7 +57,7 @@ pytest -q
 streamlit run app.py
 ```
 
-Training saves a serialized sklearn pipeline to `artifacts/churn_model.joblib`, test metrics to `artifacts/metrics.json`, model comparison to `reports/model_comparison.csv`, aggregate test risk to `artifacts/revenue_risk.json`, and SHAP global importance plots/table under `reports/`. Set `EXPORT_CUSTOMER_LEVEL_REPORTS=1` to write the customer-level risk export to the ignored `data/private/` folder for local use. Individual customer records are excluded from the public repo and dashboard; the Revenue Risk page shows segment aggregates. The dashboard includes Overview, Customer Analytics, Model Performance, Customer Prediction, Revenue Risk, and Explainability pages. SHAP explanations summarize model behavior, not causal drivers.
+Training saves a serialized sklearn pipeline to `artifacts/churn_model.joblib`, test metrics to `artifacts/metrics.json`, model comparison to `reports/model_comparison.csv`, aggregate test risk to `artifacts/revenue_risk.json`, aggregate segment risk to `reports/risk_segment_summary.csv`, and SHAP global importance plots/table under `reports/`. Set `EXPORT_CUSTOMER_LEVEL_REPORTS=1` to write the customer-level risk export to the ignored `data/private/` folder for local use. Individual customer records are excluded from the public repo and dashboard; the Revenue Risk page shows segment aggregates. The dashboard includes Overview, Customer Analytics, Model Performance, Customer Prediction, Revenue Risk, and Explainability pages. SHAP explanations summarize model behavior, not causal drivers.
 
 ## Reproduced results
 

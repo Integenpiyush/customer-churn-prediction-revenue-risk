@@ -1,0 +1,36 @@
+segment_type,segment,customers,annualized_expected_revenue_risk
+Contract,Month-to-month,773,279191.85278054327
+Contract,One year,297,30522.607064127176
+Contract,Two year,339,11596.645065132854
+tenure_group,0-6,309,116767.09139629026
+tenure_group,7-12,126,38000.866112122036
+tenure_group,13-24,208,56669.25051158443
+tenure_group,25-48,308,61778.770163274465
+tenure_group,49-72,458,48095.12672653212
+PaymentMethod,Bank transfer (automatic),313,44673.98466948895
+PaymentMethod,Credit card (automatic),306,42423.50018825904
+PaymentMethod,Electronic check,459,191253.07065157703
+PaymentMethod,Mailed check,331,42960.549400478274
+InternetService,DSL,492,55371.763341329715
+InternetService,Fiber optic,605,260093.62665033358
+InternetService,No,312,5845.714918139996
+customer_segment,0-6 tenure / high monthly charge,109,67331.23801561519
+customer_segment,0-6 tenure / low monthly charge,99,7226.3048617227005
+customer_segment,0-6 tenure / mid monthly charge,79,22636.41130506657
+customer_segment,0-6 tenure / very high monthly charge,22,19573.137213885784
+customer_segment,13-24 tenure / high monthly charge,79,28106.63701999113
+customer_segment,13-24 tenure / low monthly charge,48,1650.60462157242
+customer_segment,13-24 tenure / mid monthly charge,47,6492.293637052551
+customer_segment,13-24 tenure / very high monthly charge,34,20419.71523296833
+customer_segment,25-48 tenure / high monthly charge,80,19719.93253752887
+customer_segment,25-48 tenure / low monthly charge,64,757.6005167274736
+customer_segment,25-48 tenure / mid monthly charge,75,4858.162666714937
+customer_segment,25-48 tenure / very high monthly charge,89,36443.07444230318
+customer_segment,49-72 tenure / high monthly charge,130,9264.597399554215
+customer_segment,49-72 tenure / low monthly charge,106,505.2431621799711
+customer_segment,49-72 tenure / mid monthly charge,56,2733.326405081386
+customer_segment,49-72 tenure / very high monthly charge,166,35591.95975971655
+customer_segment,7-12 tenure / high monthly charge,48,24046.75981616378
+customer_segment,7-12 tenure / low monthly charge,39,1069.5846948430874
+customer_segment,7-12 tenure / mid monthly charge,28,3505.8996213063597
+customer_segment,7-12 tenure / very high monthly charge,11,9378.621979808808

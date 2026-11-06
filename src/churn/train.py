@@ -84,6 +84,14 @@ def main():
     fig,ax=plt.subplots(figsize=(7,5)); PrecisionRecallDisplay.from_predictions(yte,p,ax=ax); fig.tight_layout(); fig.savefig(ROOT/'reports/figures/precision_recall_curve.png',dpi=160); plt.close(fig)
     testraw=df.loc[Xte.index].copy()
     ranked,top=risk_report(testraw,p)
+    tenure_group=pd.cut(ranked.tenure,[-1,6,12,24,48,72],labels=['0-6','7-12','13-24','25-48','49-72'])
+    charge_group=pd.cut(ranked.MonthlyCharges,[-1,35,65,90,200],labels=['low','mid','high','very high'])
+    segment_frame=ranked.assign(tenure_group=tenure_group,customer_segment=tenure_group.astype(str)+' tenure / '+charge_group.astype(str)+' monthly charge')
+    segment_rows=[]
+    for segment in ['Contract','tenure_group','PaymentMethod','InternetService','customer_segment']:
+      grouped=segment_frame.groupby(segment,observed=True).agg(customers=('expected_revenue_at_risk','size'),annualized_expected_revenue_risk=('expected_revenue_at_risk','sum')).reset_index()
+      grouped=grouped.rename(columns={segment:'segment'}); grouped.insert(0,'segment_type',segment); segment_rows.append(grouped)
+    pd.concat(segment_rows,ignore_index=True).to_csv(ROOT/'reports/risk_segment_summary.csv',index=False)
     if os.getenv('EXPORT_CUSTOMER_LEVEL_REPORTS') == '1':
       private=ROOT/'data/private'; private.mkdir(parents=True,exist_ok=True)
       ranked.to_csv(private/'test_customer_risk.csv',index=False)
